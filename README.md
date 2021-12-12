@@ -25,6 +25,13 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
+## Run via docker
+
+```shell
+docker build -t fakepage .
+docker run --name fakepage -e SECRET_KEY_BASE=`mix phx.gen.secret` -p 4000:4000 fakepage:latest
+```
+
 ## References
 
 * [Markov chains in Elixir](https://neiro.io/2016-07-31-markov-chains-in-elixir.md.html)

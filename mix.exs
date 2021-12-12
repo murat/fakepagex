@@ -45,8 +45,7 @@ defmodule Fakepage.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:floki, "~> 0.32.0"},
-      {:httpoison, "~> 1.8"},
-      {:fast_html, "~> 2.0"}
+      {:httpoison, "~> 1.8"}
     ]
   end
 
