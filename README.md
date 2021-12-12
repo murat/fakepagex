@@ -14,7 +14,7 @@ P.S 2: Heroku has some limitations like memory and procs count. So if the given 
 
 ## Screenshots
 
-![https://i.imgur.com/1lMzxGe.png](https://i.imgur.com/1lMzxGe.png)
+![https://i.imgur.com/vnBSDvp.png](https://i.imgur.com/vnBSDvp.png)
 
 ## Installation
 
