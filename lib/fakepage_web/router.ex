@@ -18,6 +18,7 @@ defmodule FakepageWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    post "/", PageController, :create
   end
 
   # Other scopes may use custom stacks.
