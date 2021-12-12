@@ -1,27 +1,47 @@
-<section class="phx-hero">
-  <h1>Welcome to Fake<strong>page</strong>!</h1>
-  <p>Generate meaningful articles inspired by reference article easily.</p>
-</section>
+<div class="py-12 bg-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-center">
+      <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        Welcome to Fake<strong>page</strong>!
+      </p>
+      <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+        Generate meaningful articles inspired by reference article easily.
+      </p>
+    </div>
+  </div>
+</div>
 
-<section class="row">
-  <%= form_for @conn, Routes.page_path(@conn, :index), fn f -> %>
-    <label>
-      URL of reference article:
-      <%= text_input f, :url %>
-    </label>
-    <h2 class="text-center">OR</h2>
-    <label>
-      Content of reference article:
-      <%= textarea f, :text %>
-    </label>
-    <label>
-      How long article do you want? (in sentences)
-      <%= number_input f, :sentences %>
-    </label>
+<div class="py-12 mt-4 bg-gray-100 sm:rounded-md">
+  <div class="grid grid-cols-2 gap-4">
+    <div>
+      <%= form_for @conn, Routes.page_path(@conn, :index), [class: "px-8 pt-6 pb-8 mb-4"], fn f -> %>
+        <label for="url" class="block mt-4 text-gray-700 text-sm font-bold mb-2">
+          URL of reference article:
+        </label>
+        <%= text_input f, :url, class: "w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
 
-    <%= submit "Generate!" %>
-  <% end %>
-</section>
+        <div class="block p-4 m-4 text-center text-gray-500">
+        OR
+        </div>
 
+        <label for="url" class="block mt-4 text-gray-700 text-sm font-bold mb-2">
+          Content of reference article:
+        </label>
+        <%= textarea f, :text, class: "w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
 
-<%= raw @conn.assigns["article"] %>
+        <label for="url" class="block mt-4 text-gray-700 text-sm font-bold mb-2">
+          How long article do you want? (in sentences)
+        </label>
+        <%= number_input f, :sentences, class: "w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+
+        <div class="mt-4 text-right">
+          <%= submit "Generate!", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        </div>
+      <% end %>
+    </div>
+    
+    <div>
+      <%= raw @conn.assigns["article"] %>
+    </div>
+  </div>
+</div>

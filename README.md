@@ -6,7 +6,13 @@ Fakepage generates a new text from a given text source. It is built on [Markov C
 
 Also, this project has a crawler for web articles.
 
-P.S: The webpage on given URL needs to paragraphs `<p></p>` tags in `<article></article>` objects.
+P.S 1: The webpage on given URL needs to paragraphs `<p></p>` tags in `<article></article>` objects.
+
+[You can check on running demo here](https://ancient-brushlands-26359.herokuapp.com/)
+
+P.S 2: Heroku has some limitations like memory and procs count. So if the given text source is very long you would face internal server errors.
+
+## Screenshots
 
 ![https://i.imgur.com/1lMzxGe.png](https://i.imgur.com/1lMzxGe.png)
 
