@@ -14,6 +14,10 @@ config :fakepage, FakepageWeb.Endpoint, cache_static_manifest: "priv/static/cach
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :fakepage, FakepageWeb.Endpoint,
+  url: [scheme: "https", host: "ancient-brushlands-26359.herokuapp.com", port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]]
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
