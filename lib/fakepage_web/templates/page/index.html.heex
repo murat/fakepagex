@@ -14,11 +14,11 @@
 <div class="py-12 mt-4 bg-gray-100 sm:rounded-md">
   <div class="grid grid-cols-2 gap-4">
     <div>
-      <%= form_for @conn, Routes.page_path(@conn, :index), [class: "px-8 pt-6 pb-8 mb-4"], fn f -> %>
+      <%= form_for @conn, Routes.page_path(@conn, :index), [class: "mx-4"], fn f -> %>
         <label for="url" class="block mt-4 text-gray-700 text-sm font-bold mb-2">
           URL of reference article:
         </label>
-        <%= text_input f, :url, class: "w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        <%= text_input f, :url, placeholder: "Paste a web article url here...", class: "w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
 
         <div class="block p-4 m-4 text-center text-gray-500">
         OR
@@ -27,7 +27,7 @@
         <label for="url" class="block mt-4 text-gray-700 text-sm font-bold mb-2">
           Content of reference article:
         </label>
-        <%= textarea f, :text, class: "w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        <%= textarea f, :text, placeholder: "Paste a long text here that includes the same words multiple times...", class: "w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
 
         <label for="url" class="block mt-4 text-gray-700 text-sm font-bold mb-2">
           How long article do you want? (in sentences)
@@ -41,7 +41,9 @@
     </div>
     
     <div>
-      <%= raw @conn.assigns["article"] %>
+      <%= for sentence <- @conn.assigns["sentences"] do %>
+        <p><%= sentence %></p>
+      <% end %>
     </div>
   </div>
 </div>

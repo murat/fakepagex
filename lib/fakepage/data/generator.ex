@@ -9,7 +9,9 @@ defmodule Fakepage.Data.Generator do
 
     # Create new sentence or convert builded based on treshold value
     if prob >= @treshold do
-      sentence |> Enum.join(" ") |> String.capitalize()
+      sentence
+      |> Enum.join(" ")
+      |> String.capitalize()
     else
       create_sentence(pid)
     end
@@ -18,8 +20,6 @@ defmodule Fakepage.Data.Generator do
   # Sentence is complete when it have enough length
   # or when punctuation ends a sentence
   defp complete?(tokens) do
-    # IO.inspect(tokens)
-
     length(tokens) > 3 && Regex.match?(~r/[\!\?\.]\z/, List.last(tokens))
   end
 
@@ -27,7 +27,10 @@ defmodule Fakepage.Data.Generator do
 
   defp build_sentence(pid, tokens, prob_acc, new_tokens) do
     # Fetch Markov model state through agent
-    {token, prob} = tokens |> Model.fetch_state() |> Model.fetch_token(pid)
+    {token, prob} =
+      tokens
+      |> Model.fetch_state()
+      |> Model.fetch_token(pid)
 
     case complete?(tokens) do
       true ->

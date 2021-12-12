@@ -23,8 +23,13 @@ defmodule Fakepage.Data.Model do
     tokens = fetch_tokens(state, pid)
 
     if length(tokens) > 0 do
+      # do not take random, user may want to choose start word
       token = Enum.random(tokens)
-      count = tokens |> Enum.count(&(token == &1))
+
+      count =
+        tokens
+        |> Enum.count(&(token == &1))
+
       # count probability of the token
       {token, count / length(tokens)}
     else
